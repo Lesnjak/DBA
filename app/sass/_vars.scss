@@ -1,0 +1,61 @@
+body{
+  font-family: muller, sans-serif;
+  color: #000;
+  font-size: 16px;
+}
+$red:#d00522;
+a{
+  color: #fff;
+  display: block;
+}
+h1{
+  font-family:muller-bold,sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+h2{
+  font-family:muller-bold-extra,sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000;
+}
+.button-red{
+  width: 248px;
+  height: 52px;
+  box-shadow: 0 0 49px rgba(208, 5, 34, 0.18);
+  border-radius: 5px;
+  background-color: $red;
+  transition: 0.3s;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $red;
+  cursor: pointer;
+
+  &:hover{
+    background-color: transparent;
+
+  }
+}
+section{
+  padding: 90px 0;
+  overflow: hidden;
+
+}
+@media (max-width: 768px) {
+  h1 {
+    font-family: muller-bold,sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  section{
+    padding: 40px 0;
+    overflow: hidden;
+
+  }
+}

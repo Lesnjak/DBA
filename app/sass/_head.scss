@@ -1,0 +1,125 @@
+header{
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  overflow: hidden;
+
+.top-box{
+  padding: 18px 0 ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a{
+    color: #fff;
+    font-family: muller-medium,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    &:before{
+      position: absolute;
+      content: "";
+      background-image: url(../img/phoneopa.png);
+      width: 26px;
+      height: 37px;
+      top:-10px;
+      left: -30px;
+
+
+    }
+  }
+}
+  .red-window{
+    padding: 95px 100px 0;
+    box-shadow: 3px 5px 42px 4px rgba(0, 0, 0, 0.34);
+    border: 9px solid #d00522;
+    position: relative;
+    margin-right: -100px;
+    margin-left: -100px;
+    margin-bottom: 50px;
+    h1{
+      max-width: 680px;
+      line-height: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    p{
+      font-size: 20px;
+      max-width: 460px;
+      line-height: 30px;
+      margin-bottom: 15px;
+      font-family: muller-light, sans-serif;
+      position: relative;
+      z-index: 1;
+
+    }
+    .button-red{
+      position: relative;
+      z-index: 1;
+    }
+    .car-box{
+      position: absolute;
+      right: -15%;
+      bottom: -15%;
+
+      width: 100%;
+
+
+     img{
+       width: 100%;
+     }
+    }
+    .car-box1{
+      opacity: 0;
+      width: 65%;
+
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .brands{
+    margin: 0 -20px;
+    display: flex;
+    padding: 55px 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    .brand-item{
+      padding: 0 20px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  header .red-window {
+    margin-right: 0px;
+    margin-left: 0px;
+
+  }
+}
+@media (max-width: 993px) {
+  header .red-window {
+    padding: 60px 60px 0;
+
+  }
+  header .brands{
+    justify-content: space-around;
+  }
+  header .brands .brand-item {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  header .red-window {
+    padding: 30px 30px 0;
+  }
+  header .red-window h1 {
+    max-width: 680px;
+    line-height: 37px;
+    position: relative;
+    z-index: 1;
+  }
+}
+@media (max-width: 480px) {
+
+}
