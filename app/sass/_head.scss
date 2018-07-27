@@ -9,25 +9,70 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .logo{
+    img{
+      &:last-child{
+        display: none;
+      }
+    }
+  }
+
   a{
     color: #fff;
     font-family: muller-medium,sans-serif;
     font-size: 20px;
     font-weight: 400;
     position: relative;
-    &:before{
-      position: absolute;
-      content: "";
-      background-image: url(../img/phoneopa.png);
-      width: 26px;
-      height: 37px;
-      top:-10px;
-      left: -30px;
-
-
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+i{
+  margin-top: -2px;
+  font-size: 55px;
+  margin-right:15px;
+}
+    &:hover{
+color: $red;
     }
   }
 }
+  .scroll-on{
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    z-index: 10000;
+    top: 0;
+    animation: topS 0.5s;
+    .top-box{
+      .logo{
+        img{
+          &:last-child{
+            display: block;
+          }
+          &:first-child{
+            display: none;
+          }
+        }
+      }
+      a{
+        color: #000;
+        transition: 0.3s;
+        &:hover{
+          color: $red;
+        }
+
+      }
+    }
+  }
+  @keyframes topS {
+    0%{
+      top: -120px;
+    }
+    100%{
+      top: 0;
+    }
+  }
   .red-window{
     padding: 95px 100px 0;
     box-shadow: 3px 5px 42px 4px rgba(0, 0, 0, 0.34);

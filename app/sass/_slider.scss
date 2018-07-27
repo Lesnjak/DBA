@@ -1,0 +1,251 @@
+
+.voices{
+  transition: all 0.3s;
+}
+.wrapper{
+ max-width: 740px;
+  margin:50px auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+//.slick-slide{
+//  position: relative;
+//  z-index: 1;
+//  transform: scale(0.7) translate(140px);
+//  transition: transform .4s;
+//}
+//
+//.slick-active{
+//transform: scale(0.7) translate(140px);
+//}
+//
+//.slick-center + .slick-slide{
+//transform: scale(0.7) translate(-140px);
+//}
+
+.clone{
+  max-width:1000px ;
+  margin: -20px auto 0;
+  position: relative;
+  z-index: 0;
+  .text-box{
+animation: he 2s;
+    background-color: #fff;
+    padding: 37px 55px 58px 54px;
+    transition: 0.5s;
+    position: relative;
+    &:before {
+      position: absolute;
+      content: "";
+      width: 420px;
+      height: 37px;
+      border: 5px solid #d00522;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom: none;
+      top: -37px;
+      z-index: 100;
+    }
+
+    &>p{
+      font-family: muller-bold,sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: $red;
+      margin-bottom: 5px;
+      text-align: center;
+      transition: 0.5s;
+    }
+    .stars{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      img{
+        padding: 2px;
+      }
+      &+p{
+        color: #000000;
+        font-family: muller-light,sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: inherit;
+      }
+    }
+  }
+}
+.face-box{
+  text-align: center;
+  position: relative;
+  height: 212px;
+
+
+  .face-img{
+
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    border: 2px solid $red;
+    margin: auto;
+    transition: 0.3s;
+    img{
+      width: 100%;
+    }
+
+  }
+  .text-box{
+    display: none;
+
+  }
+}
+.slick-center{
+  z-index: 2;
+  transform: scale(1);
+  .face-box{
+    text-align: center;
+    position: relative;
+    .face-img{
+      width: 212px;
+      height: 212px;
+      border-radius: 50%;
+      border: 10px solid $red;
+      margin: auto;
+      img{
+        width: 100%;
+      }
+
+    }
+    .text-box{
+
+      width:1000px ;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      position: absolute;
+      top: 280px;
+      padding: 37px 55px 58px 54px;
+      overflow:hidden ;
+      display: none;
+      animation: he 3s;
+
+      &>p{
+        font-family: muller-bold,sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: $red;
+        margin-bottom: 5px;
+      }
+      .stars{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        img{
+          padding: 2px;
+        }
+        &+p{
+          color: #000000;
+          font-family: muller-light,sans-serif;
+          font-size: 18px;
+          font-weight: 400;
+          text-transform: inherit;
+        }
+      }
+    }
+  }
+}
+
+
+.slick-prev {
+
+}
+.slick-prev, .slick-next {
+  width: 33px;
+  height: 32px;
+  top: 55px;
+}
+.slick-next:after, .slick-prev:after {
+   content: "";
+   position: absolute;
+   width: 33px;
+   height: 32px;
+   left: 0;
+   top: 0;
+   transition: background-image 0.3s;
+ }
+.slick-next:after {
+  background-image: url(../img/arrowWN.png);
+
+}
+.slick-prev:after {
+  background-image: url(../img/arrowW.png);
+
+}
+.slick-next:hover:after {
+  background-image: url(../img/arrowR.png);
+
+}
+.slick-prev:hover:after {
+  background-image: url(../img/arrowRP.png);
+
+}
+
+.slick-next:hover:after {
+
+}
+
+.slick-next:before, .slick-prev:before {
+  display: none;
+
+}
+@keyframes he {
+  0%{
+   opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@media (max-width: 993px) {
+  .slick-prev, .slick-next {
+    width: 33px;
+    height: 32px;
+    top: 100px;
+    left: 50px;
+  }
+ .slick-next {
+    width: 33px;
+    height: 32px;
+    top: 100px;
+    left: inherit;
+   right: 50px;
+  }
+}
+@media (max-width: 480px) {
+  .clone .text-box:before {
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 37px;
+    border: 5px solid #d00522;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    border-bottom: none;
+    top: -37px;
+    z-index: 100;
+  }
+  .slick-prev, .slick-next {
+
+    left: 20px;
+  }
+  .slick-next {
+    left: inherit;
+    right: 20px;
+  }
+}
