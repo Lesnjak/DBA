@@ -49,12 +49,12 @@ $('document').ready(function () {
     });
 
 // Toggling the `.active` state on the `.sel`.
-    $('.sel').click(function() {
+    $('.select-box').on('click',".sel",function() {
         $(this).toggleClass('active');
     });
 
 // Toggling the `.selected` state on the options.
-    $('.sel__box__options').click(function() {
+    $('.select-box').on('click',".sel__box__options",function() {
         var txt = $(this).text();
         var index = $(this).index();
 
@@ -66,13 +66,46 @@ $('document').ready(function () {
         $currentSel.children('select').prop('selectedIndex', index + 1);
     });
 
-    $('.check-box label input:checked').parent().addClass('checked');
-    $('.check-box label input').click(function () {
-        $('.check-filter label input').parent().removeClass('checked');
-        if($(this).is(':checked')){
-            $(this).parent().addClass('checked');
+
+    $('.select-box ').on('click', 'label', function () {
+        $(this).parent().find('label').removeClass('checked');
+        if($(this).children("input").is(':checked')){
+            $(this).addClass('checked');
         }else{
-            $(this).parent().removeClass('checked');
+            $(this).removeClass('checked');
+        }
+
+    });
+
+    $('#datepicker').datepicker('show');
+    $('.datepicker-switch').click(function () {
+        return false;
+    })
+$(".left label:nth-child(2)").click(function () {
+    $(".right").addClass("hid");
+    $(".right input").val("");
+    $(".datepicker td").removeClass("active");
+
+})
+    $(".left label:nth-child(1)").click(function () {
+        $(".right").removeClass("hid");
+    })
+    $(".left label:nth-child(3)").click(function () {
+        $(".right").addClass("hid");
+        $(".right input").val("");
+        $(".datepicker td").removeClass("active");
+    })
+  $("label").each(function (a,b) {
+      if($(b).children("input").is(':checked')){
+          $(b).addClass('checked');
+      }
+  })
+    $('.left ').on('click', 'label', function () {
+        $(this).parent().find('label').removeClass('checked');
+        if($(this).children("input").is(':checked')){
+            $(this).addClass('checked');
+        }else{
+            $(this).removeClass('checked');
         }
 
     });
@@ -96,13 +129,12 @@ $('document').ready(function () {
 
 
     });
+    var clone = $(".slick-current .text-box").clone();
+
     $('.slick-arrow').click(function () {
-        console.log("---",555);
-        var clone = $(".slick-current .text-box").clone();
         $(".clone").html(clone);
     })
-    var clone = $(".slick-current .text-box").clone();
-        $(".clone").html(clone);
+
 
 
     $('.button-crest').click(function () {
@@ -113,13 +145,16 @@ $('document').ready(function () {
     $('[data-form]').click(function () {
         $('.thank-you-form').show();
     });
+    var cloneForm = $(".select-box .form-section:first-child").clone() ;
 
     var i = 1;
     var buttonDel = ' <a class="delete"> <div></div> <div></div> </a>';
     $('.add-form').click(function () {
-
-        var cloneForm = $(".select-box .form-section:first-child").clone().append(buttonDel) ;
-        $(".select-box").append(cloneForm);
+        var cl = $(cloneForm).clone();
+        console.log('---',cl);
+        cl.addClass('show-selects');
+        cl.append(buttonDel);
+        $(".select-box").append(cl);
         i+=1;
         $('.delete').click(function () {
             $(this).parent().remove();
@@ -132,48 +167,48 @@ $('document').ready(function () {
     ///////////////// mail////////////////////
 
     var patternPhone=/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?$/;
-    $('form input').on('mouseover',function () {
-        $(this).css('border','1px solid #c6c6c6');
-    });
+    // $('form input').on('mouseover',function () {
+    //     $(this).css('border','1px solid #c6c6c6');
+    // });
 
-    $('form').submit(function (event) {
-        event.preventDefault();
-        //event.preventDefault();
-        var mname = $('form input[name="name"]').val();
-        var mphone = $('form input[name="phone"]').val();
-
-        //console.log(mname);
-        if(!patternPhone.test(mphone)){
-            $('form input[name="phone"]').css('border','1px solid red');
-        }
-
-        if(mname ==""){
-            $('form input[name="name"]').css('border','1px solid red');
-        }
-        if(mphone ==""){
-            $('form input[name="phone"]').css('border','1px solid red');
-        }
-        if(mname && mphone &&  patternPhone.test(mphone)){
-
-            $('.thank-you-form').hide();
-            $('.thank-you-finish').show();
-
-            var msg   = $(this).serialize();
-            console.log(msg);
-            $.ajax({
-                type: 'POST',
-                url: 'contact.php',
-                data: msg,
-                success: function(data) {
-                    $('#results').html(data);
-                },
-                error:  function(xhr, str){
-                    alert('Возникла ошибка: ' + xhr.responseCode);
-                }
-            });
-        }
-
-    });
+    // $('form').submit(function (event) {
+    //     event.preventDefault();
+    //     //event.preventDefault();
+    //     var mname = $('form input[name="name"]').val();
+    //     var mphone = $('form input[name="phone"]').val();
+    //
+    //     //console.log(mname);
+    //     if(!patternPhone.test(mphone)){
+    //         $('form input[name="phone"]').css('border','1px solid red');
+    //     }
+    //
+    //     if(mname ==""){
+    //         $('form input[name="name"]').css('border','1px solid red');
+    //     }
+    //     if(mphone ==""){
+    //         $('form input[name="phone"]').css('border','1px solid red');
+    //     }
+    //     if(mname && mphone &&  patternPhone.test(mphone)){
+    //
+    //         $('.thank-you-form').hide();
+    //         $('.thank-you-finish').show();
+    //
+    //         var msg   = $(this).serialize();
+    //         console.log(msg);
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: 'contact.php',
+    //             data: msg,
+    //             success: function(data) {
+    //                 $('#results').html(data);
+    //             },
+    //             error:  function(xhr, str){
+    //                 alert('Возникла ошибка: ' + xhr.responseCode);
+    //             }
+    //         });
+    //     }
+    //
+    // });
     $(".slider-box").on("click", function (event) {
         event.preventDefault();
         var id  = $(this).attr('data-href'),
@@ -195,39 +230,6 @@ $('document').ready(function () {
     $('[data-photo="sahara"]').click(function () {
         $(".khata").addClass('pop-n');
     });
-///////////////////
-    // text rotator
-    textRotator = function(element) {
-        var words = $(element),
-            total = words.length - 1,
-            position = 0,
-            current = null,
-            timer = null;
-        $(element).first().addClass('active');
-        var autoSlide = function() {
-            words.removeClass('active');
-            if (position === total) {
-                position = 0;
-            } else {
-                position = position + 1;
-            }
-            //console.log(position);
-            words.eq(position).addClass('active');
-        };
-        timer = setInterval(autoSlide, 4000);
-    };
-    $(document).ready(function() {
-        textRotator('.change-text span');
-    });
-// // ZOOM
-//     $('.ex1').zoom();
-//
-// // STYLE GRAB
-//     $('.ex2').zoom({ on:'grab' });
-//
-// // STYLE CLICK
-//     $('.ex3').zoom({ on:'click' });
-//
-// // STYLE TOGGLE
-//     $('.ex4').zoom({ on:'toggle' });
+
+
 });
